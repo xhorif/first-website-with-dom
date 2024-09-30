@@ -1,16 +1,16 @@
-document.getElementById('btn-donation').addEventListener('click',function(event){
+document.getElementById('last-btn').addEventListener('click',function(event){
     event.preventDefault();
-    console.log('clicked button')
+    console.log('clicked button');
 
     //get the amount
 // Get the donation amount from the input field
-const donationAmount = document.getElementById('donation-input').value;
+const donationAmount = document.getElementById('last-input').value;
 const donationAmountNumber = parseFloat(donationAmount);
 
 // Check if the donation amount is a valid positive number
 if (!isNaN(donationAmountNumber) && donationAmountNumber > 0) {
     // Get the current balance of the donation project
-    const balance = document.getElementById('current-balance').innerText;
+    const balance = document.getElementById('last-capital').innerText;
     const balanceNumber = parseFloat(balance);
 
     // Get the current balance of the main account
@@ -21,7 +21,7 @@ if (!isNaN(donationAmountNumber) && donationAmountNumber > 0) {
     if (mainAccountBalanceNumber >= donationAmountNumber) {
         // Update the balance of the donation project by adding the donation amount
         const updatedBalance = balanceNumber + donationAmountNumber;
-        document.getElementById('current-balance').innerText = updatedBalance;
+        document.getElementById('last-capital').innerText = updatedBalance;
 
         // Decrease the main account balance
         const updatedMainAccountBalance = mainAccountBalanceNumber - donationAmountNumber;

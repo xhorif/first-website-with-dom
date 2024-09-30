@@ -27,7 +27,7 @@
         <div class="stat-title text-center">Account Balance</div>
         <div class="flex space-x-2 ">
           <img class="w-8 h-8" src="assets/coin.png" alt="">
-          <div class="stat-value font-semibold">5500</div>
+          <div id="main-account-balance" class="stat-value font-semibold">5500</div>
 <h2 class="text-2xl font-bold">BDT</h2>
         </div>
      
@@ -47,7 +47,7 @@
     <button class="btn btn-active bg-green-300">Donation</button>
   </div>
 <div>
-  <button class="btn btn-active">History</button>
+  <button id="btn-history" class="btn btn-active">History</button>
 
 </div>
 
@@ -61,28 +61,29 @@
 </div>
 
  <!-- data div1 -->
+
+<!-- end of first banner -->
 <div class="space-y-4">
-    <div class="flex space-x-2 ">
-        <img class="w-8 h-8 " src="assets/coin.png" alt="">
-        <div id="project-amount" class="stat-value font-semibold">500</div>
+  <div class="flex space-x-2 ">
+      <img class="w-8 h-8 " src="assets/coin.png" alt="">
+      <div id="current-balance" class="stat-value font-semibold">500</div>
 <h2 class="text-2xl font-bold">BDT</h2>
-      </div>
+    </div>
 <h2 class="text-2xl">Donate for Flood at Noakhali, Bangladesh</h2>
 <p class="text-gray-500"> The recent floods in Noakhali have caused <br> significant damage to homes  infrastructure. <br> Your donation will help provide essential supplies and <br>  to those affected by this disaster. Every <br> contribution, big or small, makes  difference. Please <br> join us in supporting the relief efforts and <br> making a positive impact on the lives of those in need.</p>
-<input id="money-input"
-  type="number"
-  placeholder="Write Your Donation Amount"
-  class="input input-bordered input-primary w-full " />
+<input id="donation-input"
+type="number"
+placeholder="Write Your Donation Amount"
+class="input input-bordered input-primary w-full " />
 
-  <button id="btn-donation" class="btn btn-block bg-green-300">Donate Now</button>
-
-</div>
-
-
+<button id="btn-donation" class="btn btn-block bg-green-300">Donate Now</button>
 
 </div>
-<!-- end of first banner -->
 
+
+
+
+</div>
 <!-- start second banner -->
  <!-- banner section div 1 -->
  <div class="flex justify-center space-x-14 ml-10 mr-10 mt-20 bg-cyan-50 py-10 rounded-lg ">
@@ -95,7 +96,7 @@
    <div class="space-y-4">
        <div class="flex space-x-2 ">
            <img class="w-8 h-8 " src="assets/coin.png" alt="">
-           <div class="stat-value font-semibold">15000</div>
+           <div id="second-project" class="stat-value font-semibold">15000</div>
    <h2 class="text-2xl font-bold">BDT</h2>
          </div>
    <h2 class="text-2xl">Donate for Flood Relief in Feni,Bangladesh</h2>
@@ -105,7 +106,7 @@
      placeholder="Write Your Donation Amount"
      class="input input-bordered input-primary w-full " />
    
-     <button class="btn btn-block bg-green-300">Donate Now</button>
+     <button id="middle-btn" class="btn btn-block bg-green-300">Donate Now</button>
    
    </div>
    
@@ -126,7 +127,7 @@
    <div class="space-y-4">
        <div class="flex space-x-2 ">
            <img class="w-8 h-8 " src="assets/coin.png" alt="">
-           <div class="stat-value font-semibold">200000</div>
+           <div id="last-capital" class="stat-value font-semibold">200000</div>
    <h2 class="text-2xl font-bold">BDT</h2>
          </div>
    <h2 class="text-2xl">Aid for Injured in the Quota Movement</h2>
@@ -136,7 +137,7 @@
      placeholder="Write Your Donation Amount"
      class="input input-bordered input-primary w-full " />
    
-     <button class="btn btn-block bg-green-300">Donate Now</button>
+     <button id="last-btn" class="btn btn-block bg-green-300">Donate Now</button>
    
    </div>
    
@@ -155,5 +156,6 @@
 
 
 <script src="js/main.js"></script>
+<script src="js/second.js"></script>
 </body>
 </html>
