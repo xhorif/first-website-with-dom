@@ -4,28 +4,28 @@ document.getElementById('btn-donation').addEventListener('click',function(event)
 
     //get the amount
 // Get the donation amount from the input field
-const donationAmount = document.getElementById('middle-input').value;
-const donationAmountNumber = parseFloat(donationAmount);
+const amountDonation = document.getElementById('middle-input').value;
+const amountDonationNumber = parseFloat(amountDonation);
 
 // Check if the donation amount is a valid positive number
-if (!isNaN(donationAmountNumber) && donationAmountNumber == > 0) {
+if (!isNaN(amountDonationNumber) && amountDonationNumber > 0) {
     // Get the current balance of the donation project
-    const balance = document.getElementById('second-project').innerText;
-    const balanceNumber = parseFloat(balance);
+    const currentBalance = document.getElementById('second-project').innerText;
+    const currentBalanceNumber = parseFloat(currentBalance);
 
     // Get the current balance of the main account
     const mainAccountBalance = document.getElementById('main-account-balance').innerText;
     const mainAccountBalanceNumber = parseFloat(mainAccountBalance);
 
     // Check if the main account has enough balance to cover the donation
-    if (mainAccountBalanceNumber >= donationAmountNumber) {
+    if (mainAccountBalanceNumber >= amountDonationNumber) {
         // Update the balance of the donation project by adding the donation amount
-        const updatedBalance = balanceNumber + donationAmountNumber;
+        const newBalance = currentBalanceNumber + donationAmountNumber;
         document.getElementById('second-project').innerText = updatedBalance;
 
         // Decrease the main account balance
-        const updatedMainAccountBalance = mainAccountBalanceNumber - donationAmountNumber;
-        document.getElementById('main-account-balance').innerText = updatedMainAccountBalance;
+        const newdMainAccountBalance = mainAccountBalanceNumber - amountDonationNumber;
+        document.getElementById('main-account-balance').innerText = newMainAccountBalance;
 
         console.log(' You Donated successfully');
     } else {
