@@ -5,23 +5,23 @@ const lastButton = document.getElementById('last-btn');
 const closePopupButton = document.getElementById('close-popup');
 const popup = document.getElementById('confirmation-popup');
 
-// Function to handle showing the popup
+
 function showPopup() {
-  popup.classList.remove('hidden'); // Show the popup
+  popup.classList.remove('hidden'); 
 }
 
-// Function to close the popup
+
 function closePopup() {
-  popup.classList.add('hidden'); // Hide the popup
+  popup.classList.add('hidden'); 
 }
 
-// Attach event listener for closing the popup
+
 closePopupButton.addEventListener('click', closePopup);
 
-// Store transaction history
+
 let transactions = [];
 
-// Function to handle donation
+
 function handleDonation(inputId, projectBalanceId, projectName) {
   const input = document.getElementById(inputId);
   const projectBalance = document.getElementById(projectBalanceId);
@@ -31,34 +31,33 @@ function handleDonation(inputId, projectBalanceId, projectName) {
   const currentProjectBalance = parseInt(projectBalance.textContent);
   const currentMainBalance = parseInt(mainBalance.textContent);
 
-  // Ensure valid donation amount and sufficient funds
+ 
   if (!isNaN(donationAmount) && donationAmount > 0 && donationAmount <= currentMainBalance) {
     // Update balances
     projectBalance.textContent = currentProjectBalance + donationAmount;
     mainBalance.textContent = currentMainBalance - donationAmount;
 
-    // Add transaction to history
+    
     const date = new Date().toLocaleString();
     transactions.push({ amount: donationAmount, project: projectName, date: date });
-    displayTransactions(); // Update the displayed transactions
-
-    // Show the popup
+    displayTransactions(); 
+  
     showPopup();
 
-    // Clear the input field after donation
+    
     input.value = '';
   } else {
     alert('Invalid donation amount or insufficient funds');
   }
 }
 
-// Function to display transactions
+
 function displayTransactions() {
   const transactionHistory = document.getElementById('transaction-history');
-  transactionHistory.innerHTML = ''; // Clear existing history
+  transactionHistory.innerHTML = ''; 
 
   if (transactions.length === 0) {
-    transactionHistory.innerHTML = '<p>No transactions yet.</p>'; // Show if no transactions
+    transactionHistory.innerHTML = '<p>No transactions yet.</p>'; 
     return;
   }
 
@@ -74,7 +73,7 @@ function displayTransactions() {
   });
 }
 
-// Attach donation button listeners for different projects
+
 donationButton.addEventListener('click', function() {
   handleDonation('donation-input', 'current-balance', 'Flood at Noakhali');
 });
@@ -85,12 +84,12 @@ lastButton.addEventListener('click', function() {
   handleDonation('last-input', 'last-capital', 'Aid for Injured in the Quota Movement');
 });
 
-// Toggling transaction history and donation
+
 const transactionHistory = document.getElementById('transaction-history');
 const donationBgBtn = document.getElementById('btn-donation-bg');
 const historyBtn = document.getElementById('btn-history');
 
-// Initially hide the history section
+
 transactionHistory.style.display = 'none';
 
 historyBtn.addEventListener('click', function() {
@@ -98,5 +97,5 @@ historyBtn.addEventListener('click', function() {
 });
 
 donationBgBtn.addEventListener('click', function() {
-  transactionHistory.style.display = 'none'; // Hide history when donation button is clicked
+  transactionHistory.style.display = 'none'; 
 });

@@ -11,7 +11,7 @@
 </head>
 <body>
   <header>
-    <nav class="flex justify-between border-2 border-spacing-3 border-rounded bg-gray-300">
+    <nav class=" lg:flex justify-between border-2 border-spacing-3 border-rounded bg-gray-300">
       <a href="blog.html" class="btn btn-lg bg-green-300 mt-4 ml-5">Blog</a>
 
       <div class="flex mt-6">
@@ -48,57 +48,57 @@
     <div id="transaction-history" class="transaction-history-container"></div>
 
     <!-- Banner Section -->
-    <div class="flex justify-center space-x-14 ml-10 mr-10 mt-20 bg-cyan-50 py-10 rounded-lg">
-      <!-- Project 1 -->
-      <div class="sm:ml-6">
-        <img src="assets/noakhali.png" alt="">
-      </div>
-      <div class="space-y-4">
-        <div class="flex space-x-2">
-          <img class="w-8 h-8" src="assets/coin.png" alt="">
-          <div id="current-balance" class="stat-value font-semibold">500</div>
-          <h2 class="text-2xl font-bold">BDT</h2>
-        </div>
-        <h2 class="text-2xl">Donate for Flood at Noakhali, Bangladesh</h2>
-        <p class="text-gray-500"> The recent floods in Noakhali have caused significant damage to <br> homes  infrastructure. Your donation will help provide essential supplies<br> and  to those affected by this disaster. Every contribution, big or <br>small, makes  difference. Please join us in supporting the relief efforts and<br> making a positive impact on the lives of those in need.</p>
-        <input id="donation-input" type="number" placeholder="Write Your Donation Amount" class="input input-bordered input-primary w-full" />
-        <button id="btn-donation" class="btn btn-block bg-green-300">Donate Now</button>
-      </div>
+   <!-- Noakhali Project -->
+<div class="flex flex-col lg:flex-row justify-center lg:justify-start ml-10 mr-10 mt-20 bg-cyan-50 py-10 rounded-lg">
+  <div class="flex flex-row justify-center mx-auto ">
+    <img src="assets/noakhali.png" alt="" class="w-full h-auto  ">
+  </div>
+  <div class="space-y-4 mt-4 lg:mt-0 lg:mx-auto">
+    <div class="flex space-x-2 ml-10">
+      <img class="w-8 h-8" src="assets/coin.png" alt="">
+      <div id="current-balance" class="stat-value font-semibold">500</div>
+      <h2 class="text-2xl font-bold">BDT</h2>
     </div>
+    <h2 class="text-2xl text-center lg:text-left">Donate for Flood at Noakhali, Bangladesh</h2>
+    <p class="mx-8 text-gray-500 text-center lg:text-left">The recent floods in Noakhali have caused significant damage to homes and infrastructure. <br> Your donation will help provide essential supplies to those affected by this disaster<br>. Every contribution, big or small, makes a difference. Please join us in<br> supporting the relief efforts and making a positive impact on the lives of those in need.</p>
+    <input id="donation-input" type="number" placeholder="Write Your Donation Amount" class=" mx-14 input input-bordered input-primary w-4/6" />
+    <button id="btn-donation" class="  mx-14 w-4/6 btn btn-block bg-green-300">Donate Now</button>
+  </div>
+</div>
 
     <!-- Second Project -->
-    <div class="flex justify-center space-x-14 ml-10 mr-10 mt-20 bg-cyan-50 py-10 rounded-lg">
-      <div class="sm:ml-6">
-        <img src="assets/feni.png" alt="">
+    <div class="flex flex-col lg:flex-row justify-center lg:justify-start ml-10 mr-10 mt-20 bg-cyan-50 py-10 rounded-lg">
+      <div class="flex flex-row justify-center mx-auto ">
+        <img src="assets/feni.png" alt="" class="w-full h-auto">
       </div>
-      <div class="space-y-4">
-        <div class="flex space-x-2">
+      <div class="space-y-4 mt-4 lg:mt-0 lg:mx-auto">
+        <div class="flex space-x-2 ml-10">
           <img class="w-8 h-8" src="assets/coin.png" alt="">
           <div id="second-project" class="stat-value font-semibold">5000</div>
           <h2 class="text-2xl font-bold">BDT</h2>
         </div>
-        <h2 class="text-2xl">Donate for Flood Relief in Feni, Bangladesh</h2>
-        <p class="text-gray-500">The recent floods in Feni have devastated local communities, leading to severe disruption <br> and loss. Your generous donation will help provide immediate aid, including food, clean water, and<br> medical supplies, to those affected by this calamity. Together, we can offer crucial <br>support and help rebuild lives in the aftermath of this disaster. Every contribution counts towards<br> making a real difference. Please consider donating today to assist those in urgent need.</p>
-        <input id="middle-input" type="number" placeholder="Write Your Donation Amount" class="input input-bordered input-primary w-full" />
-        <button id="middle-btn" class="btn btn-block bg-green-300">Donate Now</button>
+        <h2 class="text-2xl text-center lg:text-left">Donate for Flood Relief in Feni, Bangladesh</h2>
+        <p class="mx-8 text-gray-500 text-center lg:text-left">The recent floods in Feni have devastated local communities, leading to severe disruption <br> and loss. Your generous donation will help provide immediate aid, including food, clean water, and<br> medical supplies, to those affected by this calamity. Together, we can offer crucial <br>support and help rebuild lives in the aftermath of this disaster. Every contribution counts towards<br> making a real difference. Please consider donating today to assist those in urgent need.</p>
+        <input id="middle-input" type="number" placeholder="Write Your Donation Amount" class=" mx-14 input input-bordered input-primary w-4/6" />
+        <button id="middle-btn" class="mx-14 w-4/6 btn btn-block bg-green-300">Donate Now</button>
       </div>
     </div>
 
     <!-- Third Project -->
-    <div class="flex justify-center space-x-14 ml-10 mr-10 mt-20 bg-cyan-50 py-10 rounded-lg">
-      <div class="sm:ml-6">
-        <img src="assets/quota-protest.png" alt="">
+    <div class="flex flex-col lg:flex-row justify-center lg:justify-start ml-10 mr-10 mt-20 bg-cyan-50 py-10 rounded-lg">
+      <div class="flex flex-row justify-center mx-auto ">
+        <img src="assets/quota-protest.png" alt="" class="w-full h-auto">
       </div>
-      <div class="space-y-4">
-        <div class="flex space-x-2">
+      <div class="space-y-4 mt-4 lg:mt-0 lg:mx-auto">
+        <div class="flex space-x-2 ml-10">
           <img class="w-8 h-8" src="assets/coin.png" alt="">
           <div id="last-capital" class="stat-value font-semibold">2000</div>
           <h2 class="text-2xl font-bold">BDT</h2>
         </div>
-        <h2 class="text-2xl">Aid for Injured in the Quota Movement</h2>
-        <p class="text-gray-500">The recent Quota movement has resulted in numerous injuries and significant hardship<br> for many individuals. Your support is crucial in providing medical assistance, rehabilitation, and necessary<br> supplies to those affected. By contributing, you help ensure that injured <br>individuals receive the care and support they need during this challenging time. Every donation <br>plays a vital role in alleviating their suffering and aiding in their recovery. Please consider <br> making a donation to support these brave individuals in their time of need.</p>
-        <input id="last-input" type="number" placeholder="Write Your Donation Amount" class="input input-bordered input-primary w-full" />
-        <button id="last-btn" class="btn btn-block bg-green-300">Donate Now</button>
+        <h2 class="text-2xl text-center lg:text-left">Aid for Injured in the Quota Movement</h2>
+        <p class="mx-8 text-gray-500 text-center lg:text-left">The recent Quota movement has resulted in numerous injuries and significant hardship<br> for many individuals. Your support is crucial in providing medical assistance, rehabilitation, and necessary<br> supplies to those affected. By contributing, you help ensure that injured <br>individuals receive the care and support they need during this challenging time. Every donation <br>plays a vital role in alleviating their suffering and aiding in their recovery. Please consider <br> making a donation to support these brave individuals in their time of need.</p>
+        <input id="last-input" type="number" placeholder="Write Your Donation Amount" class="mx-14 input input-bordered input-primary w-4/6" />
+        <button id="last-btn" class="mx-14 w-4/6 btn btn-block bg-green-300">Donate Now</button>
       </div>
     </div>
 
