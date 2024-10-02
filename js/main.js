@@ -1,47 +1,102 @@
-// Common function to handle donations for any project
-function handleDonation(inputId, balanceId, buttonId) {
-    const donationButton = document.getElementById(buttonId);
-    
-    donationButton.addEventListener('click', () => {
-        const donationAmount = document.getElementById(inputId).value;
-        const donationAmountNumber = parseFloat(donationAmount);
+// Variables for donation button, history button, and popup
+const donationButton = document.getElementById('btn-donation');
+const middleButton = document.getElementById('middle-btn');
+const lastButton = document.getElementById('last-btn');
+const closePopupButton = document.getElementById('close-popup');
+const popup = document.getElementById('confirmation-popup');
 
-        // Check if the donation amount is a valid positive number
-        if (!isNaN(donationAmountNumber) && donationAmountNumber > 0) {
-            // Get the current balance of the donation project
-            const balance = document.getElementById(balanceId).innerText;
-            const balanceNumber = parseFloat(balance);
-
-            // Get the current balance of the main account
-            const mainAccountBalance = document.getElementById('main-account-balance').innerText;
-            const mainAccountBalanceNumber = parseFloat(mainAccountBalance);
-
-            // Check if the main account has enough balance to cover the donation
-            if (mainAccountBalanceNumber >= donationAmountNumber) {
-                // Update the balance of the donation project by adding the donation amount
-                const updatedBalance = balanceNumber + donationAmountNumber;
-                document.getElementById(balanceId).innerText = updatedBalance;
-
-                // Decrease the main account balance
-                const updatedMainAccountBalance = mainAccountBalanceNumber - donationAmountNumber;
-                document.getElementById('main-account-balance').innerText = updatedMainAccountBalance;
-
-                console.log(`Donated ${donationAmountNumber} BDT successfully to project ${balanceId}`);
-            } else {
-                alert('Insufficient funds in the main account.');
-            }
-        } else {
-            // Show an error if the input is not a valid positive number
-            alert('Failed to donate money! Please enter a valid positive number.');
-        }
-    });
+// Function to handle showing the popup
+function showPopup() {
+  popup.classList.remove('hidden'); // Show the popup
 }
 
-// First project (already working)
-handleDonation('donation-input', 'current-balance', 'btn-donation');
+// Function to close the popup
+function closePopup() {
+  popup.classList.add('hidden'); // Hide the popup
+}
 
-// Second project
-handleDonation('middle-input', 'second-project', 'middle-btn');
+// Attach event listener for closing the popup
+closePopupButton.addEventListener('click', closePopup);
 
-// Third project
-handleDonation('last-input', 'last-capital', 'last-btn');
+// Store transaction history
+let transactions = [];
+
+// Function to handle donation
+function handleDonation(inputId, projectBalanceId, projectName) {
+  const input = document.getElementById(inputId);
+  const projectBalance = document.getElementById(projectBalanceId);
+  const mainBalance = document.getElementById('main-account-balance');
+  
+  const donationAmount = parseInt(input.value);
+  const currentProjectBalance = parseInt(projectBalance.textContent);
+  const currentMainBalance = parseInt(mainBalance.textContent);
+
+  // Ensure valid donation amount and sufficient funds
+  if (!isNaN(donationAmount) && donationAmount > 0 && donationAmount <= currentMainBalance) {
+    // Update balances
+    projectBalance.textContent = currentProjectBalance + donationAmount;
+    mainBalance.textContent = currentMainBalance - donationAmount;
+
+    // Add transaction to history
+    const date = new Date().toLocaleString();
+    transactions.push({ amount: donationAmount, project: projectName, date: date });
+    displayTransactions(); // Update the displayed transactions
+
+    // Show the popup
+    showPopup();
+
+    // Clear the input field after donation
+    input.value = '';
+  } else {
+    alert('Invalid donation amount or insufficient funds');
+  }
+}
+
+// Function to display transactions
+function displayTransactions() {
+  const transactionHistory = document.getElementById('transaction-history');
+  transactionHistory.innerHTML = ''; // Clear existing history
+
+  if (transactions.length === 0) {
+    transactionHistory.innerHTML = '<p>No transactions yet.</p>'; // Show if no transactions
+    return;
+  }
+
+  transactions.forEach((transaction) => {
+    const transactionDiv = document.createElement('div');
+    transactionDiv.classList.add('bg-gray-100', 'p-4', 'rounded', 'mb-2');
+    transactionDiv.innerHTML = `
+      <p>Amount Donated: ${transaction.amount} BDT</p>
+      <p>Project: ${transaction.project}</p>
+      <p>Date: ${transaction.date}</p>
+    `;
+    transactionHistory.appendChild(transactionDiv);
+  });
+}
+
+// Attach donation button listeners for different projects
+donationButton.addEventListener('click', function() {
+  handleDonation('donation-input', 'current-balance', 'Flood at Noakhali');
+});
+middleButton.addEventListener('click', function() {
+  handleDonation('middle-input', 'second-project', 'Flood Relief in Feni');
+});
+lastButton.addEventListener('click', function() {
+  handleDonation('last-input', 'last-capital', 'Aid for Injured in the Quota Movement');
+});
+
+// Toggling transaction history and donation
+const transactionHistory = document.getElementById('transaction-history');
+const donationBgBtn = document.getElementById('btn-donation-bg');
+const historyBtn = document.getElementById('btn-history');
+
+// Initially hide the history section
+transactionHistory.style.display = 'none';
+
+historyBtn.addEventListener('click', function() {
+  transactionHistory.style.display = transactionHistory.style.display === 'none' ? 'block' : 'none';
+});
+
+donationBgBtn.addEventListener('click', function() {
+  transactionHistory.style.display = 'none'; // Hide history when donation button is clicked
+});
